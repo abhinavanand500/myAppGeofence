@@ -7,7 +7,7 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-
+import Geolocation from '@react-native-community/geolocation'
 import {
   Header,
   LearnMoreLinks,
@@ -17,20 +17,13 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 // const App: () => React$Node = () => {
-export default class App extends Component<{}>{
-  render(){
-    return(
-      <View style={styles.container}>
-        <Text>Hii There</Text>
-      </View>
-    );
-  }
+const App=()=>{
+  Geolocation.getCurrentPosition(data=>console.warn(data.coords.latitude))
+  return(
+    <View>
+      <Text style={{fontSize:70}}>Longitude Latitude</Text>
+    </View>
+  )
 }
-const styles = StyleSheet.create({
-  container:{
-    backgroundColor : '#6226BC',
-    flex:1,
-    alignItems:'center',
-    justifyContent:'center'
-  }
-});
+
+export default App
